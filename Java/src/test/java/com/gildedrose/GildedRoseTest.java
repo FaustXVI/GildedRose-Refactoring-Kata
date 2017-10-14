@@ -4,6 +4,7 @@ package com.gildedrose;
 import org.junit.jupiter.api.DynamicNode;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -29,7 +30,7 @@ public class GildedRoseTest {
         assertEquals("foo", app.items[0].name);
     }
 
-    @ParameterizedTest
+//    @ParameterizedTest
     @MethodSource("goesDownByOneItems")
     void qulaityGoesDownByOne(Item item) {
         Integer previousQuality = item.quality;
@@ -75,7 +76,7 @@ public class GildedRoseTest {
     }
 
 
-    @ParameterizedTest
+//    @ParameterizedTest
     @MethodSource("goesDownByTwoItems")
     void qulaityGoesDownByTwo(Item item) {
         Integer previousQuality = item.quality;
@@ -95,7 +96,7 @@ public class GildedRoseTest {
     }
 
 
-    @ParameterizedTest
+//    @ParameterizedTest
     @MethodSource("goesToZeroItems")
     void qulaityGoesToZero(Item item) {
         Integer previousQuality = item.quality;
@@ -115,7 +116,7 @@ public class GildedRoseTest {
     }
 
 
-    @ParameterizedTest
+//    @ParameterizedTest
     @MethodSource("goesUpByOneItems")
     void qulaityGoesUpByOne(Item item) {
         Integer previousQuality = item.quality;
@@ -174,7 +175,7 @@ public class GildedRoseTest {
     }
 
 
-    @ParameterizedTest
+//    @ParameterizedTest
     @MethodSource("goesUpByTwoItems")
     void qulaityGoesUpByTwo(Item item) {
         Integer previousQuality = item.quality;
@@ -223,7 +224,7 @@ public class GildedRoseTest {
     }
 
 
-    @ParameterizedTest
+//    @ParameterizedTest
     @MethodSource("stableItems")
     void qulaityIsStable(Item item) {
         Integer previousQuality = item.quality;
@@ -374,7 +375,7 @@ public class GildedRoseTest {
     }
 
 
-    //@TestFactory
+    @TestFactory
     public Stream<DynamicNode> qualityVariation() {
         List<DynamicNode> tests = new ArrayList<>();
         List<Function<Integer, Predicate<Item>>> predicates =
