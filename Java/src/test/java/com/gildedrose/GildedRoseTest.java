@@ -1,7 +1,6 @@
 package com.gildedrose;
 
 
-import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -12,19 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class GildedRoseTest {
 
     @ParameterizedTest
-    @TestTemplate
     @MethodSource("goesDownByOneItems")
     public void qualityGoesDownByOne(Item item) {
-        Integer previousQuality = item.quality;
-        Item[] items = new Item[]{item};
-        GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].quality).isEqualTo(previousQuality - 1);
-    }
-
-//    @Test
-    public void qualityGoesDownByOneSingle() {
-        Item item = new Item("foo", 0, 1);
         Integer previousQuality = item.quality;
         Item[] items = new Item[]{item};
         GildedRose app = new GildedRose(items);
